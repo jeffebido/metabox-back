@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-
 import {signUpSchema, loginSchema} from "../schemas/authSchema";
 
 export async function loginMiddleware(req:Request, res:Response, next:NextFunction) {

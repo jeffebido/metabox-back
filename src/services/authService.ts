@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import  { CreateUserData }  from '../types/authTypes';
 import { createUser, getUserByEmail } from '../repositories/authRepositorie'
+import * as error from '../utils/errors'
 
 export async function LogIn(authData: CreateUserData){
   
@@ -27,6 +28,12 @@ export async function LogIn(authData: CreateUserData){
 
 export async function SignUp(userData: CreateUserData){
 
+  const user = await getUserByEmail(userData.email);
+
+  if(user){
+    throw error.conflict();
+  }
+ 
   const encryptedPassword = bcrypt.hashSync(userData.password, 10);
 
   const newUserData : CreateUserData = {
