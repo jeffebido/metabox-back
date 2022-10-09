@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid'
 
-import { insert } from '../repositories/collectionsRepositorie'
+import { insert } from '../repositories/collectionsRepository'
 
 import { CreateCollectionData } from '../types/collectionsTypes';
 
