@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import  { CreateUserData }  from '../types/authTypes';
-import { createUser, getUserByEmail } from '../repositories/authRepositorie'
+import { createUser, getUserByEmail } from '../repositories/authRepository'
 import * as error from '../utils/errors'
 
 export async function LogIn(authData: CreateUserData){
@@ -17,7 +17,7 @@ export async function LogIn(authData: CreateUserData){
       expiresIn: EXPIRES_IN
     };
 
-    const token = jwt.sign(user, SECRET, jwtConfig);
+    const token = jwt.sign({ userId: user.id }, SECRET, jwtConfig);
 
     return token;
   } else {

@@ -24,7 +24,7 @@ model collections {
 	id Int @id @default(autoincrement())
   name String
   description String
-  publicUrl String 
+  publicUrlSlug String @unique
   coverImg  String
   user users @relation(fields: [userId], references: [id])
   userId Int
