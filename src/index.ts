@@ -1,8 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import 'express-async-errors';
+
 import authRouter from './routes/authRouter';
 import collectionsRouter from './routes/collectionsRouter';
+import modelsRouter from './routes/modelsRouter';
+
 import { errorHandlingMiddleware } from './middlewares/errorHandlerMiddleware';
 
 const app = express();
@@ -13,6 +16,7 @@ app.use(cors());
 
 app.use(authRouter);
 app.use(collectionsRouter);
+app.use(modelsRouter);
 
 app.use(errorHandlingMiddleware);
 

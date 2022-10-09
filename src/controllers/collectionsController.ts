@@ -7,5 +7,5 @@ export async function createCollection(req: Request, res: Response) {
 
     await collectionsService.createCollection({...req.body, userId:res.locals.user.id});
 
-    res.send( 201 );
+    res.sendStatus( 201 );
 }
