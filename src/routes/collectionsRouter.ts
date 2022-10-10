@@ -10,6 +10,7 @@ const router = Router();
 router.use(checkAuthenticatedUserMiddleware);
 
 router.post("/newCollection", collectionsMiddleware, createCollection);
+
 router.get('/collections/:userId', getCollectionsByUser);
 router.get('/collection/:slug', getCollectionBySlug);
 
