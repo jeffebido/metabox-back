@@ -18,6 +18,11 @@ app.use(authRouter);
 app.use(collectionsRouter);
 app.use(modelsRouter);
 
+
+
+app.use('/uploads', express.static('uploads'));
+
+
 app.use(errorHandlingMiddleware);
 
 const PORT = process.env.PORT || '5000';

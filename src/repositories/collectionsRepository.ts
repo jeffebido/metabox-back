@@ -1,5 +1,6 @@
 import prisma from '../db';
 import { collections } from '@prisma/client';
+import { models } from '@prisma/client';
 
 import { CreateCollectionData } from '../types/collectionsTypes';
 
@@ -22,4 +23,5 @@ export async function getBySlug(slug: string) {
     return prisma.collections.findUnique({
         where: { publicUrlSlug: slug }
     });
+    
 }
