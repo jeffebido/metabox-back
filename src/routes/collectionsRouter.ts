@@ -7,9 +7,9 @@ import { checkAuthenticatedUserMiddleware } from '../middlewares/authMiddleware'
 
 const router = Router();
 
-router.use(checkAuthenticatedUserMiddleware);
 
-router.post("/newCollection", collectionsMiddleware, createCollection);
+
+router.post("/newCollection", checkAuthenticatedUserMiddleware, collectionsMiddleware, createCollection);
 
 router.get('/collections/:userId', getCollectionsByUser);
 router.get('/collection/:slug', getCollectionBySlug);
