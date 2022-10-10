@@ -12,4 +12,7 @@ router.use(checkAuthenticatedUserMiddleware);
 router.post("/newCollection", collectionsMiddleware, createCollection);
 
 
+
+
+
 export default router;
