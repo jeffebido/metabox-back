@@ -17,7 +17,7 @@ export async function LogIn(authData: CreateUserData){
       expiresIn: EXPIRES_IN
     };
 
-    const token = jwt.sign({ userId: user.id }, SECRET, jwtConfig);
+    const token = jwt.sign({ userId: user.id, userEmail: user.email, userName: user.name , userProfileImg: user.profileImg }, SECRET, jwtConfig);
 
     return token;
   } else {
