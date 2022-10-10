@@ -9,3 +9,17 @@ export async function insert(collectionData: CreateCollectionData) {
     
     await prisma.collections.create({ data: collectionData });
 }
+
+export async function getByUserId(userId: number) {
+    
+    return prisma.collections.findMany({
+        where: { userId: userId }
+    });
+}
+
+export async function getBySlug(slug: string) {
+    
+    return prisma.collections.findUnique({
+        where: { publicUrlSlug: slug }
+    });
+}

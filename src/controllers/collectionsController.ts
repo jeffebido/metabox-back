@@ -9,3 +9,21 @@ export async function createCollection(req: Request, res: Response) {
 
     res.sendStatus( 201 );
 }
+
+export async function getCollectionsByUser(req: Request, res: Response) {
+    
+    const { userId } = req.params;
+
+    const collections = await collectionsService.getCollectionsByUser(+userId);
+
+    res.send( collections );
+}
+
+export async function getCollectionBySlug(req: Request, res: Response) {
+    
+    const { slug } = req.params;
+
+    const collection = await collectionsService.getCollectionBySlug(slug);
+
+    res.send( collection );
+}
